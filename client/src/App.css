@@ -1,0 +1,35 @@
+nav {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	min-height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.8rem 1.5rem;
+	backdrop-filter: blur(10px);
+	background: linear-gradient(90deg, rgba(5, 10, 15, 0.92), rgba(18, 46, 66, 0.9));
+	border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+nav a {
+	color: #e7edf2;
+	text-decoration: none;
+	font-weight: 600;
+	padding: 0.5rem 0.9rem;
+	border-radius: 999px;
+	transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+	background-color: rgba(255, 255, 255, 0.14);
+	color: #ffffff;
+	transform: translateY(-1px);
+}
+
+nav a:focus-visible {
+	outline: 2px solid #f5efe2;
+	outline-offset: 2px;
+}
+
