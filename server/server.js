@@ -35,14 +35,20 @@ app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
 
-const cn = {
-host: process.env.DB_HOST,
-port: Number(process.env.DB_PORT),
-database: process.env.DB_NAME,
-user: process.env.DB_USER,
-password: process.env.DB_PASS || process.env.DB_PASSWORD,
-allowExitOnIdle: true
-}
+const cn = process.env.DATABASE_URL
+    ? {
+        connectionString: process.env.DATABASE_URL,
+        ssl: { rejectUnauthorized: false },
+        allowExitOnIdle: true
+    }
+    : {
+        host: process.env.DB_HOST,
+        port: Number(process.env.DB_PORT),
+        database: process.env.DB_NAME,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASS || process.env.DB_PASSWORD,
+        allowExitOnIdle: true
+    };
 const db = pgp(cn)
 
 //Cors config
